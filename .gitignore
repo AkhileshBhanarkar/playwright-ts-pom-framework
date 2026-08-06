@@ -1,0 +1,10 @@
+node_modules/
+dist/
+reports/
+test-results/
+allure-results/
+allure-report/
+screenshots/
+videos/
+.env
+.DS_Store
