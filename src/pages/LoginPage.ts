@@ -10,10 +10,10 @@ export class LoginPage extends BasePage {
 
   constructor(page: Page) {
     super(page);
-    this.usernameInput = page.locator('input[name="username"]');
+    this.usernameInput = page.locator('input[name="email"]');
     this.passwordInput = page.locator('input[name="password"]');
-    this.loginButton = page.locator('button:has-text("Login")');
-    this.errorMessage = page.locator('.error-message');
+    this.loginButton = page.locator('button[type="submit"]');
+    this.errorMessage = page.getByText('Invalid email or password');
   }
 
   async enterUsername(username: string): Promise<void> {
@@ -32,10 +32,6 @@ export class LoginPage extends BasePage {
     await this.enterUsername(username);
     await this.enterPassword(password);
     await this.clickLoginButton();
-  }
-
-  async getErrorMessage(): Promise<string> {
-    return await this.getText(this.errorMessage);
   }
 
   async isErrorDisplayed(): Promise<boolean> {

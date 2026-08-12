@@ -11,15 +11,18 @@ test.describe('Login Tests', () => {
     await loginPage.login(testData.validUser.username, testData.validUser.password);
     await dashboardPage.page.waitForLoadState('networkidle');
     
-    const welcomeMsg = await dashboardPage.getWelcomeMessage();
-    expect(welcomeMsg).toContain('Welcome');
+    const userEmail = await dashboardPage.getUserEmail();
+    console.log(`Logged in user email: ${userEmail}`);
+    expect(userEmail).toBe(testData.validUser.username);
   });
 
   test('should display error with invalid credentials', async ({ loginPage }) => {
     await loginPage.login(testData.invalidUser.username, testData.invalidUser.password);
     
     const isErrorDisplayed = await loginPage.isErrorDisplayed();
-    expect(isErrorDisplayed).toBeTruthy();
+    console.log(`Is error message displayed: ${isErrorDisplayed}`);
+    await expect(loginPage.errorMessage).toBeVisible();
+    await expect(loginPage.errorMessage).toHaveText('Invalid email or password');
   });
 
   test('should login and logout successfully', async ({ loginPage, dashboardPage }) => {

@@ -21,15 +21,15 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], headless: config.headless },
+      use: { ...devices['Desktop Chrome'], headless: process.env.CI ? true : config.headless },
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'], headless: config.headless },
+      use: { ...devices['Desktop Firefox'], headless: process.env.CI ? true : config.headless },
     },
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'], headless: config.headless },
+      use: { ...devices['Desktop Safari'], headless: process.env.CI ? true : config.headless },
     },
   ],
 });

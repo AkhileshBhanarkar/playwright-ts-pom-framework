@@ -11,13 +11,16 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
+
     "paths": {
-      "@pages/*": ["src/pages/*"],
-      "@tests/*": ["src/tests/*"],
-      "@utils/*": ["src/utils/*"],
-      "@config/*": ["src/config/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@tests/*": ["./src/tests/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@config/*": ["./src/config/*"],
+      "@fixtures/*": ["./src/fixtures/*"]
     }
   },
+
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,6 +1,6 @@
 export const testData = {
   validUser: {
-    username: 'testuser@example.com',
+    username: 'playwright.testuser@example.com',
     password: 'TestPassword123!',
   },
   invalidUser: {
